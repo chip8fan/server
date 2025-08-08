@@ -6,6 +6,7 @@ import socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 	s.bind(('', 8000)) # port 8000 must be opened via sudo ufw allow 8000
 	s.listen(4) # connect up to 4 clients
-	conn, addr = s.accept() # this is BLOCKING
-	print(addr) # placeholder
+	while True:
+		conn, addr = s.accept() # this is BLOCKING
+		print(addr) # placeholder
 
