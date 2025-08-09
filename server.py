@@ -10,12 +10,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 	conn2, addr2 = s.accept() # this is BLOCKING, waits for the 2nd connection
 	while True:
 		data = conn1.recv(1024)
-		if not data:
-			break
-		conn2.send(data)
-	while True:
+		conn2.sendall(data)
 		data = conn2.recv(1024)
-		if not data:
-			break
-		conn1.send(data)
+		conn1.sendall(data)
 
