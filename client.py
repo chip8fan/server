@@ -10,9 +10,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 			msg = input("Me: ").encode("utf-8")
 			s.sendall(msg)
 			reply = s.recv(1024).decode("utf-8")
-			print(f"Them: {data}")
+			print(f"Them: {reply}")
 		elif status == "wait":
 			reply = s.recv(1024).decode("utf-8")
-			print(f"Them: {data}")
+			print(f"Them: {reply}")
 			msg = input("Me: ").encode("utf-8")
 			s.sendall(msg)
