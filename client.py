@@ -16,3 +16,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 			print(f"Them: {reply}")
 			msg = input("Me: ").encode("utf-8")
 			s.sendall(msg)
+		if reply == "bye":
+			break
