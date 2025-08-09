@@ -10,6 +10,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 	s.listen(2) # connect up to 2 clients
 	for _ in range(2):
 		conn, addr = s.accept()
+		if _ % 2 == 0:
+			conn.sendall(b'send')
+		else:
+			conn.sendall(b'wait')
 		sockets.append(conn)
 	while running:
 		for sock in sockets:
